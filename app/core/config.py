@@ -1,9 +1,13 @@
+from typing import Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     # .env의 변수명과 일치해야 합니다.
     DATABASE_URL: str
+    OPENAI_API_KEY: Optional[str] = None
+    ENV_MODE: Optional[str] = "local"
+    RAPID_API_KEY: Optional[str] = None
 
     # .env 파일을 읽어오기 위한 설정
     model_config = SettingsConfigDict(env_file=".env")

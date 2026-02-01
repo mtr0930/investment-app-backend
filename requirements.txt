@@ -6,3 +6,4 @@ pydantic-settings
 yfinance
 pandas
 apscheduler
+httpx

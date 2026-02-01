@@ -15,5 +15,16 @@ services:
       # 로컬에 데이터를 저장하여 데이터 유실 방지
       - postgres_data:/var/lib/postgresql/data
 
+  searxng:
+    image: searxng/searxng:latest
+    container_name: investment_searxng
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./searxng:/etc/searxng:rw
+    environment:
+      - SEARXNG_SETTINGS_PATH=/etc/searxng/settings.yml
+
 volumes:
   postgres_data:
